@@ -37,4 +37,43 @@ describe(Vehicle) do
     end
   end
 
+  describe(".clear") do
+    it("clears out the all vehicles array") do
+    test_vehicle = Vehicle.new("Toyota", "4Runner", "2000").save()
+    Vehicle.clear()
+    expect(Vehicle.all()).to(eq([]))
+    end
+  end
+
+  describe("#id") do
+    it("automatically creates an id for each new instance of a vehicle") do
+    test_vehicle = Vehicle.new("Toyota", "4Runner", "2000")
+    test_vehicle.save()
+    expect(test_vehicle.id()).to(eq(1))
+    end
+  end
+
+  describe("#age") do
+    it("returns the vehicles age") do
+      test_vehicle = Vehicle.new("Toyota", "4Runner", "2000")
+      expect(test_vehicle.age()).to(eq(17))
+    end
+  end
+
+  describe("#worth_buying?") do
+    it("returns false if the vehicle is not American made and less than 17 years old") do
+      test_vehicle = Vehicle.new("Toyota", "4Runner", "2000")
+      expect(test_vehicle.worth_buying?()).to(eq(false))
+    end
+  end
+
+  describe('.find') do
+    it('returns a specific vehicle based on its id number') do
+      test_vehicle = Vehicle.new("Toyota", "4Runner", "2000")
+      test_vehicle.save()
+      test_vehicle2 = Vehicle.new("Subaru", "Crosstrek", "2016")
+      test_vehicle2.save()
+      expect(Vehicle.find(test_vehicle.id())).to(eq(test_vehicle))
+    end
+  end
 end
