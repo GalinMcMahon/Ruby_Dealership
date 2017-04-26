@@ -27,6 +27,11 @@ get('/dealerships') do
   erb(:dealerships)
 end
 
+get('/dealerships/:id') do
+  @all_dealerships = Dealership.all()
+  @dealership = Dealership.find(params.fetch('id'))
+  erb(:success)
+end
 
 post('/dealerships') do
   name = params.fetch('name')
@@ -40,10 +45,6 @@ get('/vehicles/:id') do
   erb(:vehicle)
 end
 
-get('/dealerships/:id') do
-  @dealership = Dealership.find(params.fetch('id'))
-  erb(:success)
-end
 
 get('/dealerships/:id/vehicles/new') do
   @dealership = Dealership.find(params.fetch('id'))
