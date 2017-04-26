@@ -1,5 +1,6 @@
 require('rspec')
 require('dealerships') #requires lib file that is .rb
+require('vehicle')
 
 describe(Dealership) do
   describe("#name") do
@@ -46,5 +47,14 @@ describe(Dealership) do
       expect(Dealership.find(test_dealership.id())).to(eq(test_dealership))
     end
   end
+
+  describe('#add_vehicle') do
+    it('adds a vehicle to the cars array') do
+      test_dealership = Dealership.new("Bob's Dealership")
+      test_vehicle = Vehicle.new("Toyota", "4Runner", "2000")
+      test_dealership.add_vehicle(test_vehicle)
+      expect(test_dealership.cars()).to(eq([test_vehicle]))
+      end
+    end
 
 end

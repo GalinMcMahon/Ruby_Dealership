@@ -1,26 +1,27 @@
 require('rspec')
 require('./lib/vehicle') #requires lib file that is .rb
 
+
 describe(Vehicle) do
 
   describe("#make") do
     it("returns the vehicles make") do
       test_vehicle = Vehicle.new("Toyota", "4Runner", "2000")
-      expect(test_vehicle.make()).to(eq("Toyota"))
+      expect(test_vehicle.make()).to(eq("TOYOTA"))
     end
   end
 
   describe("#model") do
     it("returns the vehicles model") do
       test_vehicle = Vehicle.new("Toyota", "4Runner", "2000")
-      expect(test_vehicle.model()).to(eq("4Runner"))
+      expect(test_vehicle.model()).to(eq("4RUNNER"))
     end
   end
 
   describe("#year") do
     it("returns the vehicles year") do
       test_vehicle = Vehicle.new("Toyota", "4Runner", "2000")
-      expect(test_vehicle.year()).to(eq("2000"))
+      expect(test_vehicle.year()).to(eq(2000))
     end
   end
 

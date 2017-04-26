@@ -1,23 +1,13 @@
 class Vehicle
   @@vehicles = []
 
+attr_accessor :make , :model , :year
+
   define_method(:initialize) do |make,model,year|
-    @make = make.upcase()
-    @model = model.upcase()
-    @year = year.upcase()
+   self.make = make.upcase
+   self.model = model.upcase
+   self.year = year.to_i
     @id = @@vehicles.length().+(1)
-  end
-
-  define_method(:make) do
-    @make
-  end
-
-  define_method(:model) do
-    @model
-  end
-
-  define_method(:year) do
-    @year
   end
 
   define_singleton_method(:all) do

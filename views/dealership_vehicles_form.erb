@@ -1,5 +1,8 @@
-<h1>Enter Your Vehicles Stats</h1>
-<form action="/vehicles">
+<h1>Add a vehicle to <%= @dealership.name() %></h1>
+
+<form action="/vehicles" method="post">
+  <input id='dealership_id' name='dealership_id' type='hidden' value='<%= @dealership.id() %>'>
+
   <div class="form-group">
      <label for="">Enter Your Vehicles Make:</label>
      <input id="" name="make" class="form-control" type="text">
@@ -12,5 +15,6 @@
      <label for="">Enter Your Vehicles Year:</label>
      <input id="" name="year" class="form-control" type="text">
   </div>
+
   <button type="submit" class="btn-success">Enter</button>
 </form>
